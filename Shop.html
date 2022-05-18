@@ -110,7 +110,7 @@
 
       <!-- Main -->
       <!--Row one: iPhone-->
-      <div class="row">
+      <div class="row" style="background-color:white">
         <div class="col-sm" style="margin:auto">
           <div class="card">
             <img src="images/iphone1.jpg" alt="Card image cap">
@@ -173,10 +173,10 @@
       </div>
 
       <!--Row two: Samsung-->
-      <div class="row">
+      <div class="row" style="background-color:white">
         <div class="col-sm" style="margin:auto">
           <div class="card">
-            <img src="images/samsung1.jpg" alt="Card image cap">
+            <img src="images/samsung1.jpg" style="height:55%" alt="Card image cap">
             <div class="card-block">
               <p style="font-size:x-large">Samsung S10<p>
               <p>Price: £450.00
@@ -193,7 +193,7 @@
         </div>
         <div class="col-sm" style="margin:auto">
           <div class="card" >
-            <img src="images/samsung2.jpg" style="height:55%" alt="Card image cap">
+            <img src="images/samsung2.jpg" style="height:52%" alt="Card image cap">
             <div class="card-block">
               <p style="font-size:x-large">Samsung S21 <p>
               <p>Price: £799.00
@@ -228,10 +228,10 @@
       </div>
 
       <!--Row three: Huawei-->
-      <div class="row">
+      <div class="row" style="background-color:white">
         <div class="col-sm" style="margin:auto">
           <div class="card">
-            <img src="images/huawei1.jpg" alt="Card image cap">
+            <img src="images/huawei1.jpg" style="height:50%" alt="Card image cap">
             <div class="card-block">
               <p style="font-size:x-large">Huawei P20 Pro<p>
               <p>Price: £350.00
@@ -249,7 +249,7 @@
         </div>
         <div class="col-sm" style="margin:auto">
           <div class="card" >
-            <img src="images/huawei2.jpg" style="height:55%" alt="Card image cap">
+            <img src="images/huawei2.jpg" style="height:50%" alt="Card image cap">
             <div class="card-block">
               <p style="font-size:x-large">Huawei P40 Pro<p>
               <p>Price: £899.99 
@@ -327,9 +327,10 @@
               <p>Please input your promo code (if you have one) and proceed to checkout: </p>
               <input type="text" id="input" placeholder="Promo code"> 
               <br><br>
-              <button type="submit" class="btn btn-secondary" onclick="promoCheck('input')">Redeem</button>
+              <button type="submit" class="redeem btn-secondary">Redeem</button>
               <br><br>
-              <p id="promoWorked">Total: £<span class="total-cart"></span></p>
+              <P></P>
+              <p id="deducted"></p>
             </div>
             <div class="modal-footer">
               <button type="button" class="close" id="continueShopping" data-dismiss="modal">Continue shopping</button>
@@ -388,24 +389,9 @@
       }
 
 
-      //Check if promo code is correct:
-      function promoCheck(input) {
-        var str = document.getElementById(input).value
-
-        if(str != "SKEL22") {
-          alert('"' + str + '"' + " is incorrect, please input correct promo code")
-        }
-
-        else {
-
-          document.getElementById('promoWorked').innerHTML = "Code worked: you now have 5% off!";
-
-        }
-
-      }
-
       function checkout() {
-        document.write("No permission. Please visit https://skeeter-h.github.io/Block-5/Contact.html for help. Thank you");
+      
+        document.write("Permission denied: Please "+"<a href= 'https://skeeter-h.github.io/Block-5/Contact.html' type=button>contact us</a>"+ " for more information.");
       }
    
     </script>
