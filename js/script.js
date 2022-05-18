@@ -1,5 +1,5 @@
 // ************************************************
-// Shopping Cart API taken from Codehim: 
+// Shopping Cart API taken from Codehim: https://www.codehim.com/collections/javascript-shopping-cart-examples-with-demo/ by Chris_Achinga 
 // ************************************************
 
 var shoppingCart = (function() {
@@ -8,19 +8,19 @@ var shoppingCart = (function() {
   // =============================
   cart = [];
   
-  // Constructor
+  // Constructor for each item (it will have a name, price and count associated with it)
   function Item(name, price, count) {
     this.name = name;
     this.price = price;
     this.count = count;
   }
   
-  // Save cart
+  // Save cart (Save cart so even if page is refreshed, items are still in basket)
   function saveCart() {
     sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
   }
   
-    // Load cart
+    // Load cart (Loads the saved cart from previous sessions)
   function loadCart() {
     cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
   }
@@ -32,21 +32,22 @@ var shoppingCart = (function() {
   // =============================
   // Public methods and propeties
   // =============================
-  var obj = {};
+  var obj = {}; //Create an object that stores (using function addItemToCart) 
   
-  // Add to cart
+  // Add to cart object (this way a new instance of that item can be made each time and treated as a function to represent new item)
   obj.addItemToCart = function(name, price, count) {
     for(var item in cart) {
       if(cart[item].name === name) {
-        cart[item].count ++;
+        cart[item].count ++;  //Checking to see if there are any previous items with the same name (if there are the the added count will be registered and function will return)
         saveCart();
         return;
       }
     }
 
-    var item = new Item(name, price, count);
     
-    if(window.confirm(item.name + " has been added to cart")) { //The first item purchased will ask user for confirmation on whether they want it added 
+    var item = new Item(name, price, count); //New item created if there are no items that match before it
+    
+    if(window.confirm(item.name + " has been added to cart")) { //First time an item is added, the user is prompted, after that they are no longer asked
       cart.push(item);
       saveCart();
     } else {
@@ -66,9 +67,9 @@ var shoppingCart = (function() {
   // Remove item from cart
   obj.removeItemFromCart = function(name) {
       for(var item in cart) {
-        if(cart[item].name === name) {
+        if(cart[item].name === name) { //For loop where by if name matches then item count is lowered
           cart[item].count --;
-          if(cart[item].count === 0) {
+          if(cart[item].count === 0) { //If the count is already 0 then the item is removed from the cart array permanently
             cart.splice(item, 1);
           }
           break;
@@ -81,22 +82,31 @@ var shoppingCart = (function() {
   obj.removeItemFromCartAll = function(name) {
     for(var item in cart) {
       if(cart[item].name === name) {
-        cart.splice(item, 1);
+        cart.splice(item, 1); //All existing items that match the names of those in the cart are removed
         break;
       }
     }
     saveCart();
   }
 
-  // Clear cart
+  // Object to be able to create a new 
   obj.clearCart = function() {
-    if(window.confirm("Delete all items from cart? ")) { //Ask for confirmation from users before clearing basket
-      cart = [];
-      saveCart();
+
+    if(cart.length == 0) {
+      alert("There are no items in your basket...") //Added code to prompt user or alert them that there are no items
     }
+      else { 
+      if(window.confirm("Delete all items from cart? ")) { //Ask for confirmation from users before clearing basket
+        cart = [];
+        saveCart();
+      }
+
+    }
+    
+
   }
 
-  // Count cart 
+  // Count cart (get total count of an item)
   obj.totalCount = function() {
     var totalCount = 0;
     for(var item in cart) {
@@ -105,16 +115,16 @@ var shoppingCart = (function() {
     return totalCount;
   }
 
-  // Total cart
+  // Total cart, get the total price of a cart depending on the count of each item
   obj.totalCart = function() {
     var totalCart = 0;
     for(var item in cart) {
       totalCart += cart[item].price * cart[item].count;
     }
-    return Number(totalCart.toFixed(2));
+    return Number(totalCart.toFixed(2)); //Round number to two decimal places 
   }
 
-  // List cart
+  // List cart, every item is pushed to an array so that you can get a list of the items 
   obj.listCart = function() {
     var cartCopy = [];
     for(i in cart) {
@@ -141,7 +151,7 @@ var shoppingCart = (function() {
   // listCart : Function
   // saveCart : Function
   // loadCart : Function
-  return obj;
+  return obj; //list Cart is returned as an object
 })();
 
 
@@ -149,10 +159,10 @@ var shoppingCart = (function() {
 // Triggers / Events
 // ***************************************** 
 // Add item
-$('.add-to-cart').click(function(event) {
+$('.add-to-cart').click(function(event) { //Where the basket button is info is taken (as data) and will be used when adding/removing items
   event.preventDefault();
   var name = $(this).data('name');
-  var price = Number($(this).data('price'));
+  var price = Number($(this).data('price')); //data is turned into an integer to be able to claculate total later 
   shoppingCart.addItemToCart(name, price, 1);
   displayCart();
 });
@@ -163,7 +173,7 @@ $('.clear-cart').click(function() {
   displayCart();
 });
 
-
+//Cart is displayed when basket (items) button is clicked 
 function displayCart() {
   var cartArray = shoppingCart.listCart();
   var output = "";
@@ -182,32 +192,32 @@ function displayCart() {
   $('.show-cart').html(output);
   $('.total-cart').html(shoppingCart.totalCart());
   $('.total-count').html(shoppingCart.totalCount());
-}
+}//Class names used to display information is areas specified 
 
 // Delete item button
 
 $('.show-cart').on("click", ".delete-item", function(event) {
-  var name = $(this).data('name')
+  var name = $(this).data('name') //x button to delete all instances of that specific item in the
   shoppingCart.removeItemFromCartAll(name);
   displayCart();
 })
 
 
 // -1
-$('.show-cart').on("click", ".minus-item", function(event) {
+$('.show-cart').on("click", ".minus-item", function(event) { //Button to go down by one or up by one of specified item
   var name = $(this).data('name')
   shoppingCart.removeItemFromCart(name);
   displayCart();
 })
 // +1
-$('.show-cart').on("click", ".plus-item", function(event) {
+$('.show-cart').on("click", ".plus-item", function(event) {//^^ the opposite
   var name = $(this).data('name')
   shoppingCart.addItemToCart(name);
   displayCart();
 })
 
 // Item count input
-$('.show-cart').on("change", ".item-count", function(event) {
+$('.show-cart').on("change", ".item-count", function(event) { //Input is taken and the count is changed to number specified for that item
    var name = $(this).data('name');
    var count = Number($(this).val());
   shoppingCart.setCountForItem(name, count);

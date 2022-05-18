@@ -283,6 +283,23 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
     padding: 10px 20px;
   }
 
+  .pButton:hover {
+    padding: 12px 23px;
+  }
+
+  #continueShopping {
+    background-color: #9272e8;
+    color:white;
+    border: 2px solid #9272e8;
+    transition: 0.24s all ease;
+    border-radius:10px;
+ 
+  }
+
+  #continueShopping:hover {
+    background-color: #520ca7;
+  }
+
   #modalClose {
   background-color: #520ca7;
   color:white;
@@ -334,6 +351,16 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
     background-color: #9272e8;
     padding: 5px 8px;
   }
+
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+
+
+
+
 
 
 
