@@ -203,7 +203,6 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
   /* Position the "next arrow" to the right */
   .next {
     right:30%;
-    border-radius: 3px 0 0 3px;
     top: 60%;
   }
   
@@ -274,32 +273,66 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
     font-size: large;
   }
 
-  /*Choose different colours for iphone*/
-
-  #coral {
-    background-color: coral;
-  }
-
-
-  #red {
-    background-color: red;
-  }
-
-  #yellow {
-    background-color: yellow;
-  }
-
-  #black {
-    background-color: black;
+  /*purchase button*/
+  .pButton {
+    background-color: #520ca7;
     color:white;
+    border: 2px solid #9272e8;
+    transition: 0.24s all ease;
+    border-radius:10px;
+    padding: 10px 20px;
   }
 
-  #white {
-    background-color: white;
+  #modalClose {
+  background-color: #520ca7;
+  color:white;
+  border: 2px solid #9272e8;
+  transition: 0.24s all ease;
   }
 
-  #blue {
-    background-color: skyblue;
+  #modalClose:hover, .pButton:hover {
+    margin: 7px;
+    border: 2px solid #520ca7;
+  }
+
+  #cartButton {
+    background-color: #520ca7;
+    color:white;
+    border: 2px solid #9272e8;
+    transition: 0.24s all ease;
+    border-radius:10px;
+    padding: 10px 20px;    
+  }
+
+  #cartButton:hover {
+    background-color: #9272e8;
+  }
+
+  /*Cards for viewing products*/
+  .card {
+    margin-top:40px;
+    margin-left: 50px;
+    width: 20rem;
+    height: 25rem;
+  }
+
+  .card:hover {
+    width: 25rem;
+    height: 28rem;
+    font-size:larger;
+    transition: 1.5s;    
+  }
+
+  #buyButton {
+    background-color: #520ca7;
+    color:white;
+    transition: 0.24s all ease;   
+    padding: 10px 12px;
+  }
+
+  #buyButton:hover {
+    background-color: #9272e8;
+    padding: 5px 8px;
   }
 
 

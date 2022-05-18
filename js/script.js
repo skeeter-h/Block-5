@@ -1,5 +1,5 @@
 // ************************************************
-// Shopping Cart API
+// Shopping Cart API taken from Codehim: 
 // ************************************************
 
 var shoppingCart = (function() {
@@ -38,15 +38,15 @@ var shoppingCart = (function() {
   obj.addItemToCart = function(name, price, count) {
     for(var item in cart) {
       if(cart[item].name === name) {
-        window.alert("Another " + cart[item].name + " has been added to the cart");
         cart[item].count ++;
         saveCart();
         return;
       }
     }
+
     var item = new Item(name, price, count);
     
-    if(window.confirm(item.name + " has been added to cart")) {
+    if(window.confirm(item.name + " has been added to cart")) { //The first item purchased will ask user for confirmation on whether they want it added 
       cart.push(item);
       saveCart();
     } else {
@@ -90,8 +90,10 @@ var shoppingCart = (function() {
 
   // Clear cart
   obj.clearCart = function() {
-    cart = [];
-    saveCart();
+    if(window.confirm("Delete all items from cart? ")) { //Ask for confirmation from users before clearing basket
+      cart = [];
+      saveCart();
+    }
   }
 
   // Count cart 
