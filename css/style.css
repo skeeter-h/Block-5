@@ -352,8 +352,8 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
     padding: 5px 8px;
   }
 
-
-  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+/*Import needed for item count change*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 

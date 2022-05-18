@@ -89,9 +89,8 @@ var shoppingCart = (function() {
     saveCart();
   }
 
-  // Object to be able to create a new 
+  // remove everything from cart
   obj.clearCart = function() {
-
     if(cart.length == 0) {
       alert("There are no items in your basket...") //Added code to prompt user or alert them that there are no items
     }
@@ -167,6 +166,16 @@ $('.add-to-cart').click(function(event) { //Where the basket button is info is t
   displayCart();
 });
 
+$('.redeem').click(function(event) {
+  if(document.getElementById('input').value == "SKEL22") {
+    var total = shoppingCart.totalCart();
+    total = total*0.95;
+    document.getElementById('deducted').innerHTML = "New Total: £" + total.toFixed(2);
+  } else {
+    alert("Incorrect promo code, please try again")
+  }
+});
+
 // Clear items
 $('.clear-cart').click(function() {
   shoppingCart.clearCart();
@@ -190,12 +199,12 @@ function displayCart() {
       +  "</tr>";
   }
   $('.show-cart').html(output);
+  $('.show-deduction').html(output);
   $('.total-cart').html(shoppingCart.totalCart());
   $('.total-count').html(shoppingCart.totalCount());
 }//Class names used to display information is areas specified 
 
 // Delete item button
-
 $('.show-cart').on("click", ".delete-item", function(event) {
   var name = $(this).data('name') //x button to delete all instances of that specific item in the
   shoppingCart.removeItemFromCartAll(name);
