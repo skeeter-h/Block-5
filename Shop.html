@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+    <!--My CSS file-->
+    <link rel="stylesheet" href="css/style.css">
+
+        
+    <title>Home</title>
+  </head>
+  <body>
+
+    <main>
+      
+
+    <!--Header of page where logo and navigation bar is-->
+    <div class="container">
+
+      <div class="row">
+
+        <!--LOGO-->
+        <div class="col-sm-2" class="logodiv">
+          <img alt = "SKEL Logo" src="images/logo.png" width="100%" />
+        </div>
+        
+
+        <div class="col-sm-9" id="lang">
+          <!--LANGUAGE OPTION-->
+          <hr>
+            <form class="form1">
+              <label for="language">
+                <span lang="english" style="color: grey" >Language: </span>
+              </label>
+              <select id="language" >
+                <option value="english">en</option>
+              </select>
+            </form>
+
+          <br>
+          <br>
+
+          <!--NAV BAR-->
+          <div class="navbar1">
+            <a href="Home.html"><button class="hButtons">Home</button></a>
+            <a href="Shop.html"><button class="chosenButton">Shop</button></a>
+            <a href="About.html"><button class="hButtons">About</button></a>
+            <a href="Contact.html"><button class="hButtons" style="margin-right:10%">Contact Us</button></a>
+
+
+            <div class="dropdown">
+              <button class="hButtons">Basket</button>
+              <div class="dropdown-content"> <!--The drop down button then reveals reveals items (where when clicked you can see contents) and clear basket option-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Cart (<span class="total-count"></span>)</button><button class="clear-cart btn btn-danger">Clear Basket</button></div>
+              </div>  
+            </div>
+          </div>           
+       </div>
+      </div>
+    
+
+    
+      <div class="row">       
+        <!--Marquee showing discount text-->
+        <marquee direction="left" style="color: #898888;">
+            10% OFF SELECTED PHONES AND A FURTHER 5% OFF WHEN YOU USE CODE "<span style="color: red">SKEL22</span>"
+        </marquee>
+      </div>
+    
+
+      <br><br><br>
+
+      <div class="row justify-content-center">
+
+        <div class="slideshow-container">
+
+          <div class="mySlides fade" >
+            <a href="applePhones.html"><img src="images/iphone.jpg" style="position:absolute; left:35%; width:30%; cursor: pointer; "></a>
+            <div class="text">Shop Apple Products</div> 
+          </div>
+    
+          <div class="mySlides fade">
+            <a href="samsungPhones.html"><img src="images/samsung.jpg" style="position:absolute; left:35%; width:30%; cursor: pointer;"></a>
+            <div class="text">Shop Samsung Products</div>
+          </div>
+    
+          <div class="mySlides fade">
+            <a href="huaweiPhones.html"><img src="images/huawei.jpg" style="position:absolute; left:35%; width:30%; cursor: pointer;"></a>
+            <div class="text">Shop Huawei Products</div>
+          </div>
+    
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!--Function from JS script below that takes you to prev slide-->
+          <a class="next" onclick="plusSlides(1)">&#10095;</a> <!--Function from JS script below that takes you to next slide-->
+
+          <!-- The dots/circles -->
+          <div style="position:absolute; top:auto; left:48%">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+     </div>
+
+     <!-- Main -->
+
+    <div class="row">
+      <div class="col col-md-4">
+        <div class="card" style="width: 20rem;">
+  <img class="card-img-top" src="images/buyIphone.jpg" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title">iPhone XR</h4>
+    <p class="card-text">Price: £500.00</p>
+    <a href="#" data-name="iphone" data-price="500.0" class="add-to-cart btn btn-primary">Add to cart</a>
+  </div>
+
+      </div>
+      <div class="col col-md-4">
+        <div class="card" style="width: 20rem;">
+  <img class="card-img-top" src="./img/bananas.jpg" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title">Banana</h4>
+    <p class="card-text">Price: $1.22</p>
+    <a href="#" data-name="Banana" data-price="1.22" class="add-to-cart btn btn-primary">Add to cart</a>
+  </div>
+</div>
+</div>
+
+  
+ <!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table">
+          
+        </table>
+        <div>Total price: $<span class="total-cart"></span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Order now</button>
+      </div>
+    </div>
+  </div>
+
+
+     
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+      <!--Bottom of page-->
+      <div class="row" style="position: relative;">
+        <div class="col">
+          <hr>
+          <p style="text-align:center; color: grey">&copy; 2022 | SKEL, all rights reserved.<br></p>
+        </div>
+      </div>
+    </div>
+
+    </main>
+
+  
+    <script>
+
+      /*Following JS code taken from W3S source: https://www.w3schools.com/howto/howto_js_slideshow.asp */ 
+  
+      let slideIndex = 1;
+      showSlides(slideIndex); 
+  
+      // Next/previous controls: n is the position you want to move (1 before or 1 after) and the current slide index is taken and then n is added to change index
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+  
+      // Function to show slide wanted
+      function currentSlide(n) { 
+        showSlides(slideIndex = n);
+      }
+  
+      /*n parameter for slide position*/
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides"); // Each image/slide is taken and made into an array
+        let dots = document.getElementsByClassName("dot"); //Dots made into an array
+        if (n > slides.length) {slideIndex = 1} //If n (slide index) is greater than the total slides available, you are taken back to first slide (allows for continuous rotation)
+        if (n < 1) {slideIndex = slides.length} //Same for if for instance prev is clicked but you are at first slide
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+      }
+   
+    </script>
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script  src="./js/script.js"></script>
+
+  
+
+  
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+</html>
