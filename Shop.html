@@ -390,8 +390,11 @@
 
 
       function checkout() {
-      
-        document.write("Permission denied: Please "+"<a href= 'https://skeeter-h.github.io/Block-5/Contact.html' type=button>contact us</a>"+ " for more information.");
+        if(confirm("Are you sure you would like to checkout now? ")) {      
+          document.write("Permission denied: Please "+"<a href= 'https://skeeter-h.github.io/Block-5/Contact.html' type=button>contact us</a>"+ " for more information.");
+        } else {
+          return 0;
+        }
       }
    
     </script>
