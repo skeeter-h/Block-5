@@ -52,15 +52,52 @@
         </div>
       </div>
 
-      <h1>Contact Us</h1>
+      <h1>Complete Form Below</h1>
 
-      <
-    
-    
+      <div class="row justify-content-center" >
+        <div class="col-sm" style="color:white">
+          <div class="sectionText">
+            
+            <!-- Create a form in HTML -->
+            <!-- Give it a 'name' attribute of 'myform' so that the JavaScript can pick it up -->
+            <!--Internal script, find js if you scroll down
+            form tag allows for inbuilt features such as validating emails-->
+            <!--The rest of the validations are done manually via JavaScript-->
+            <form name="myform" method="post" action="Contact.html" onsubmit="return validateform()" > <!--Submit action sends back to contact page since don't have email handlers-->
+              <ul>
+                <li>
+                  <!-- Create a name field -->
+                  <label>First-Name:</label>
+                  <input id="namesBox" type="text" name="name" />
+                </li>
+                <li>
+                  <!-- Create a name field -->
+                  <label>Surname:</label>
+                  <input id="namesBox" type="text" name="surn" />
+                </li>
+                <li>
+                  <!-- Create an email field -->
+                  <label>E-mail:</label>
+                  <input id="namesBox" type="email" name="email" />
+                </li>
+                <li>
+                  <!-- Create a message field -->
+                  <label>Message:</label>
+                  <textarea id="messageBox" name="message" ></textarea>
+                </li>
+                <li>
+                  <!-- Create a submit button -->
+                  <input type="submit" value="Submit" style="margin:10px"> 
+                </li>
+              </ul>
+            <!-- Close the form tag -->
+            </form>
+          </div>
+        </div>
+      
+  
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     
-
-
       <!--Bottom of page-->
       <div class="row">
         <div class="col">
@@ -69,6 +106,53 @@
         </div>
       </div>
     </div>
+
+    <script>
+        // Form Validation using JavaScript
+
+        function validateform(){   
+        var bool;
+
+        // Four variables, one for name, surname, email and message 
+        var name=document.myform.name.value;
+        var surn=document.myform.surn.value;
+        var email=document.myform.email.value;
+        var message=document.myform.message.value;  
+
+        // Create an IF statement with 3 sections, one for each form field
+        // Section 1 - For the NAME field
+        if (name==null || name==""){  
+          alert("Field *First-Name* cannot be blank, please input your information...");  
+          bool == false;
+          return false;  
+        // Section 2 - For the SURNAME field
+        }else if (surn==null || surn==""){
+          alert("Field *Surname* cannot be blank, please input your information...");
+          bool == false;
+          return false;
+        //Section 3 - making sure email is not left blank 
+        }else if (email==null || email==""){  
+          alert("Field *Email* cannot be blank, please input your information..."); 
+          bool == false; 
+          return false;
+        //Section 3 - For the MESSAGE field
+        }else if (message==null || message==""){  
+          alert("Please leave us a message, otherwise we can't help you!"); 
+          bool == false; 
+          return false;
+        }else {
+          alert("Message received, we will get back to you shortly.")
+        }
+
+        //If the function returns false then it stops running and takes you back to page to input correct info
+
+        // Close the 'validateform' function
+        }
+
+    
+
+
+    </script>
 
    
    
