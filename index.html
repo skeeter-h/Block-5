@@ -55,7 +55,7 @@
     
     <br><br><br><br>
     
-      <p class="para1" id="text1">
+      <p class="para1" id="text1" onmouseenter="changeText('text1')">
         Lightning fast delivery across the globe!
       </p>  
       
@@ -65,7 +65,7 @@
         <div class="front" style="background-image: url(images/image1.jpg); background-size:800px;"></div> <!--id front is used in JS for fading effect-->
       </div>
       
-      <p class="para1" id="text2">
+      <p class="para1" id="text2" onmouseenter="changeText('text2')">
         Supplying you with the latest technology and premium plans!
       </p>     
 
@@ -73,7 +73,7 @@
         <div style="background-image: url(images/image2.jpg); background-size:800px;"></div>
       </div>
 
-      <p class="para1" id="text3">
+      <p class="para1" id="text3" onmouseenter="changeText('text3')">
         SKEL is a well established technology company that specialises in the distribution mobile phones. <br>
         Here at SKEL we pride ourselves in our reliable services, from consistent customer <br> services  to fast and efficient deliveries. 
         <a href="Shop.html" style="color:white;">Click here to start shopping!</a>
@@ -108,6 +108,13 @@
         }
         document.querySelector(".front").style.opacity = opacity; //The image currently on top clears up reveal image underneath
       });
+
+      function changeText(text) {
+        document.getElementById(text).style.color='white';
+        document.getElementById(text).style.transition='1.2s';
+
+      }
+
 
     </script>
 
