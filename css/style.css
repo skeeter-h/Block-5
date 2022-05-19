@@ -7,6 +7,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+  color: #9272e8;
+  font-size: xx-large;
+  font-weight: 200;
+  text-align: center;
+  margin:30px;
+  border:2px #9272e8;
+  border-color: #9272e8;
+  border-style: solid;
+  padding: 20px 32px;
+}
+
 
 /*Home page paragraphs*/
 .para1 {
@@ -330,12 +342,12 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
     margin-top:40px;
     margin-left: 50px;
     width: 20rem;
-    height: 25rem;
+    height: 24rem;
   }
 
   .card:hover {
-    width: 25rem;
-    height: 28rem;
+    width: 21rem;
+    height: 25rem;
     font-size:larger;
     transition: 1.5s;    
   }
@@ -352,9 +364,110 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
     padding: 5px 8px;
   }
 
-/*Import needed for item count change*/
+/*Import needed for item count change TAKEN FROM CODEHIM template*/
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+/*-----------------------------------------------------------------------------------------------------
+
+CSS Contact Page*/
+
+.sectionText {
+  font-size:larger;
+  padding: 1em;
+	border: 1px solid black;
+  background-color: #3a393b;
+  opacity:0.7;
+  border-radius: 70px;
+}
+
+.sectionText:hover {
+  background-color: #36155f;
+  opacity: 1;
+}
+
+#messageBox {
+  margin:15px;
+  padding: 20px 15px grey;
+  background-color:#6e6d6e;
+}
+
+#messageBox:hover {
+  background-color: #a58edb;
+  transition: 0.8s;
+  opacity:1;
+  padding: 22px 22px;
+  border: 2px solid;
+  border-radius: 100px;
+  color:black;
+}
+
+#namesBox {
+  margin:15px;
+  padding: 6px 15px;
+  background-color:#6d6d6e;
+}
+
+
+#namesBox:hover {
+  background-color: #a58edb;
+  transition: 0.8s;
+  opacity:1;
+  padding: 6px 15px;
+  border: 2px solid;
+  border-radius: 100px;
+  color:black;
+
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+textarea {
+	font: 1em sans-serif;
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #999;
+	vertical-align: top;
+	height: 5em;
+}
+
+
+/**--------------------------------------------------------------------------------------------------------------------------------
+CSS for About Page
+*/
+h2 {
+  text-align:center;
+  font-size:xx-large;
+  color:white;
+
+}
+
+.info {
+  background-color:black;
+  border: #520ca7 solid;
+  color: #9272e8;
+  font-size:x-large;
+  margin:auto;
+  margin-right:60px;
+  height:340px;
+  box-sizing: content-box;
+  box-shadow: #9272e8;
+  margin:auto;
+
+}
+
+.info:hover {
+  padding:100px 50px;
+  border-radius: 60px;
+  transition:0.6s;
+  background-color: #9272e8;
+  color:black;
+}
 
 
 
