@@ -178,7 +178,6 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
 /* Slideshow container */
 .slideshow-container {
     max-width: 2000px;
-    margin: auto;
     position:relative;
     width: 250%;
     margin-left: auto;
@@ -388,9 +387,10 @@ CSS Contact Page*/
 }
 
 #messageBox {
-  margin:15px;
+  margin:5px;
   padding: 20px 15px grey;
   background-color:#6e6d6e;
+  margin-right:200px;
 }
 
 #messageBox:hover {
@@ -451,13 +451,15 @@ h2 {
   background-color:black;
   border: #520ca7 solid;
   color: #9272e8;
-  font-size:x-large;
+  font-size:large;
   margin:auto;
   margin-right:60px;
-  height:340px;
+  height:400px;
   box-sizing: content-box;
   box-shadow: #9272e8;
   margin:auto;
+  margin-right:20px;
+  min-height:300px;
 
 }
 
@@ -465,10 +467,11 @@ h2 {
   padding:100px 50px;
   border-radius: 60px;
   transition:0.6s;
+  height:400px;
   background-color: #9272e8;
   color:black;
+  font-size: 20px;
 }
-
 
 
 
