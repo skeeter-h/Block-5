@@ -166,6 +166,16 @@ $('.add-to-cart').click(function(event) { //Where the basket button is info is t
   displayCart();
 });
 
+//Own code written to stop new modal from opening (checkout) if there are no items in basket
+$('.pButton').click(function(event) {
+  var total = shoppingCart.totalCart();
+  if(total == 0) {
+    alert("There are no items in the basket...");
+    event.stopPropagation();
+  } 
+});
+
+
 //Own code written to "redeem" code and get reduction on items
 $('.redeem').click(function(event) {
   if(document.getElementById('input').value == "SKEL22") { //If the value inputted is the same as available promo code then deduction occurs
