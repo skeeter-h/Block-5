@@ -59,12 +59,12 @@
           <div class="sectionText">
             
             <!-- Create a form in HTML -->
-            <!-- Give it a 'name' attribute of 'myform' so that the JavaScript can pick it up -->
-            <!--Internal script, find js if you scroll down
+            <!-- Give it a 'name' attribute of 'myform' so that the JavaScript can pick it up (name allows for the data stored in element whereas class/id don't) -->
+            <!--Internal script, scroll down 
             form tag allows for inbuilt features such as validating emails-->
             <!--The rest of the validations are done manually via JavaScript-->
             <form name="myform" method="post"  onsubmit="return validateform()" > <!--Submit action sends back to contact page since don't have email handlers-->
-              <ul> <!--Initially had an action attribute but removed because of (404) issues when redirecting through github repo-->
+              <ul> <!--List structure-->
                 <li>
                   <!-- Create a name field -->
                   <label>First-Name:</label>
@@ -108,37 +108,35 @@
     </div>
 
     <script>
-        // Form Validation using JavaScript
 
+        // Form Validation using JavaScript
         function validateform(){   
-        var bool;
+        
 
         // Four variables, one for name, surname, email and message 
+        //values (strings) in each input will be stored in a variable and then conditions will be added to ensure form validation
         var name=document.myform.name.value;
         var surn=document.myform.surn.value;
         var email=document.myform.email.value;
         var message=document.myform.message.value;  
 
-        // Create an IF statement with 3 sections, one for each form field
+
+        //If condition for each input (making sure that user input something)
         // Section 1 - For the NAME field
-        if (name==null || name==""){  
+        if (name==null || name==""){ 
           alert("Field *First-Name* cannot be blank, please input your information...");  
-          bool == false;
           return false;  
         // Section 2 - For the SURNAME field
         }else if (surn==null || surn==""){
           alert("Field *Surname* cannot be blank, please input your information...");
-          bool == false;
           return false;
-        //Section 3 - making sure email is not left blank 
+        //Section 3 - for the EMAIL field (since it's type email it will naturally not accept standard email structure either)
         }else if (email==null || email==""){  
           alert("Field *Email* cannot be blank, please input your information..."); 
-          bool == false; 
           return false;
         //Section 3 - For the MESSAGE field
         }else if (message==null || message==""){  
           alert("Please leave us a message, otherwise we can't help you!"); 
-          bool == false; 
           return false;
         }else {
           alert("Message received, we will get back to you shortly.")
@@ -146,11 +144,8 @@
 
         //If the function returns false then it stops running and takes you back to page to input correct info
 
-        // Close the 'validateform' function
+        
         }
-
-    
-
 
     </script>
 

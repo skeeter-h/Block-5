@@ -123,18 +123,18 @@ var shoppingCart = (function() {
     return Number(totalCart.toFixed(2)); //Round number to two decimal places 
   }
 
-  // List cart, every item is pushed to an array so that you can get a list of the items 
+  // List cart, every item is pushed to an array so that you can get a list of the items
   obj.listCart = function() {
     var cartCopy = [];
     for(i in cart) {
       item = cart[i];
       itemCopy = {};
       for(p in item) {
-        itemCopy[p] = item[p];
+        itemCopy[p] = item[p]; 
 
       }
-      itemCopy.total = Number(item.price * item.count).toFixed(2);
-      cartCopy.push(itemCopy)
+      itemCopy.total = Number(item.price * item.count).toFixed(2); //If multiple of the same items are added then the price is calculated 
+      cartCopy.push(itemCopy) //Then the copy of those items is added to cart
     }
     return cartCopy;
   }
@@ -159,20 +159,21 @@ var shoppingCart = (function() {
 // ***************************************** 
 // Add item
 $('.add-to-cart').click(function(event) { //Where the basket button is info is taken (as data) and will be used when adding/removing items
-  event.preventDefault();
+  event.preventDefault(); //Prevents items being added by default unless button explicitely clicked
   var name = $(this).data('name');
   var price = Number($(this).data('price')); //data is turned into an integer to be able to claculate total later 
   shoppingCart.addItemToCart(name, price, 1);
   displayCart();
 });
 
+//Own code written to "redeem" code and get reduction on items
 $('.redeem').click(function(event) {
-  if(document.getElementById('input').value == "SKEL22") {
+  if(document.getElementById('input').value == "SKEL22") { //If the value inputted is the same as available promo code then deduction occurs
     var total = shoppingCart.totalCart();
     total = total*0.95;
-    document.getElementById('deducted').innerHTML = "New Total: £" + total.toFixed(2);
-  } else {
-    alert("Incorrect promo code, please try again")
+    document.getElementById('deducted').innerHTML = "New Total: £" + total.toFixed(2); //The new price is the printed below original
+  } else { //Otherwise alert lets user know it's incorrect
+    alert("Incorrect promo code, please try again");
   }
 });
 
@@ -184,12 +185,12 @@ $('.clear-cart').click(function() {
 
 //Cart is displayed when basket (items) button is clicked 
 function displayCart() {
-  var cartArray = shoppingCart.listCart();
+  var cartArray = shoppingCart.listCart(); 
   var output = "";
   for(var i in cartArray) {
     output += "<tr>"
       + "<td>" + cartArray[i].name + "</td>" 
-      + "<td>(" + cartArray[i].price + ")</td>"
+      + "<td>(" + cartArray[i].price + ")</td>" //Where code for for the increase/decrease button option is: they appear when item appears
       + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
       + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
       + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
@@ -198,8 +199,7 @@ function displayCart() {
       + "<td>" + cartArray[i].total + "</td>" 
       +  "</tr>";
   }
-  $('.show-cart').html(output);
-  $('.show-deduction').html(output);
+  $('.show-cart').html(output); //Where total price will appear (find show-cart class in html file)
   $('.total-cart').html(shoppingCart.totalCart());
   $('.total-count').html(shoppingCart.totalCount());
 }//Class names used to display information is areas specified 
@@ -212,13 +212,13 @@ $('.show-cart').on("click", ".delete-item", function(event) {
 })
 
 
-// -1
+// -1 (Button to go down one count)
 $('.show-cart').on("click", ".minus-item", function(event) { //Button to go down by one or up by one of specified item
   var name = $(this).data('name')
   shoppingCart.removeItemFromCart(name);
   displayCart();
 })
-// +1
+// +1 (Button to go up one count)
 $('.show-cart').on("click", ".plus-item", function(event) {//^^ the opposite
   var name = $(this).data('name')
   shoppingCart.addItemToCart(name);

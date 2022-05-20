@@ -12,6 +12,7 @@
 
         
     <title>Shop</title>
+    <!--Contains cart function, external so go to script.js-->
   </head>
   <body>
 
@@ -72,10 +73,12 @@
         <br><br><br><br><br>
 
   
+        <!--Mini slideshow HTML taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp  -->
+        <!--Find scripting below: just scroll to bottom-->
         <div class="row justify-content-center" >
           <div class="slideshow-container">
 
-            <div class="mySlides fade" >
+            <div class="mySlides fade" > <!--Each image container uses same class name and is treated like an array in script-->
               <img src="images/iphone.jpg" style="position:absolute; left:35%; width:30%; "/>
               <div class="text">Shop Apple Products</div> 
             </div>
@@ -96,7 +99,7 @@
 
               <!-- The dots/circles -->
             <div style="position:absolute; top:auto; left:48%">
-              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(1)"></span> <!--Each dot is associated with a position, so when clicked you are taken to index position-->
               <span class="dot" onclick="currentSlide(2)"></span>
               <span class="dot" onclick="currentSlide(3)"></span>
             </div>
@@ -108,6 +111,7 @@
            
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr>
 
+      <!--Template from CodeHim used to create cart option: -->
       <!-- Main -->
       <!--Row one: iPhone-->
       <div class="row" style="background-color:white">
@@ -298,22 +302,24 @@
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modalClose">
-                <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span> <!--Close button (x) at top of modal-->
               </button>
             </div>
             <div class="modal-body">
-              <table class="show-cart table" style="color:white">
+              <table class="show-cart table" style="color:white"> <!--Where item and increase/decrease amount buttons will come: f-->
               </table>
-              <div>Total price: £<span class="total-cart"></span></div>
+              <div>Total price: £<span class="total-cart"></span></div> <!--"total-cart" is used in js script (script.js) and total will appear-->
             </div>
             <div class="modal-footer">
-              <button type="button" class="clear-cart btn btn-danger" data-dismiss="modal">Clear Basket</button>
+              <!--Clear Basket gets rid of all the data stored in the modal (items(name,price and count))-->
+              <button type="button" class="clear-cart btn btn-danger" data-dismiss="modal">Clear Basket</button> <!--btn-danger attributes displays the button in a way that looks dangerous-->
               <button type="button" class="pButton" data-toggle="modal" data-target="#order"> Checkout </button></div>
             </div>
           </div>
         </div>
       </div>
 
+      <!--Modal to input promo code before going to payment page-->
       <div class="modal" id="order" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: #0d0d0e;">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content" style="background-color: white">
@@ -330,7 +336,7 @@
               <button type="submit" class="redeem btn-secondary">Redeem</button>
               <br><br>
               <p>Total: £<span class="total-cart"></span></p>
-              <p id="deducted"></p>
+              <p id="deducted"></p> <!--This information is stored so even if you come ouf modal, it will still have code activated-->
             </div>
             <div class="modal-footer">
               <button type="button" class="close" id="continueShopping" data-dismiss="modal">Continue shopping</button>
@@ -391,7 +397,7 @@
 
       function checkout() {
         if(confirm("Are you sure you would like to checkout now? ")) {      
-          document.write("Permission denied: Please "+"<a href= 'https://skeeter-h.github.io/Block-5/Contact.html' type=button>contact us</a>"+ " for more information.");
+          document.write("Permission denied: Please "+"<a href= 'Contact.html' type=button>contact us</a>"+ " for more information.");
         } else {
           return 0;
         }
