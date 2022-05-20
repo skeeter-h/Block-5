@@ -311,14 +311,27 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
     background-color: #520ca7;
   }
 
-  #modalClose {
+  #closeModal1 {
   background-color: #520ca7;
   color:white;
   border: 2px solid #9272e8;
   transition: 0.24s all ease;
   }
 
-  #modalClose:hover, .pButton:hover {
+  #closeModal2 {
+    background-color: #520ca7;
+    color:white;
+    border: 2px solid #9272e8;
+    transition: 0.24s all ease;
+    }
+  
+
+  #closeModal1:hover, .pButton:hover {
+    margin: 7px;
+    border: 2px solid #520ca7;
+  }
+
+  #closeModal2:hover, .pButton:hover {
     margin: 7px;
     border: 2px solid #520ca7;
   }
@@ -351,14 +364,14 @@ CSS code taken from: https://www.w3schools.com/howto/howto_js_slideshow.asp with
     transition: 1.5s;    
   }
 
-  #buyButton {
+  .add-to-cart {
     background-color: #520ca7;
     color:white;
     transition: 0.24s all ease;   
     padding: 10px 12px;
   }
 
-  #buyButton:hover {
+  .add-to-cart:hover {
     background-color: #9272e8;
     padding: 5px 8px;
   }
@@ -403,14 +416,14 @@ CSS Contact Page*/
   color:black;
 }
 
-#namesBox {
+.namesBox {
   margin:15px;
   padding: 6px 15px;
   background-color:#6d6d6e;
 }
 
 
-#namesBox:hover {
+.namesBox:hover {
   background-color: #a58edb;
   transition: 0.8s;
   opacity:1;
